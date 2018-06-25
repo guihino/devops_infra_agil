@@ -1,0 +1,42 @@
+---
+
+- name: criando usuarios
+  hosts: all
+  tasks:
+   - name: criando usuarios
+     user:
+      name: "{{ item }}"
+      shell: /bin/bash
+      createhome: yes
+     with_items:
+      - devops
+      - hino
+      - developer
+      - 4linux
+     
+   - name: instalando pacotes apt
+     apt:
+      name: "{{ item }}"
+      state: present
+     with_items:
+      - vim
+      - nano
+      - sl
+      - ccze
+      - dnsutils
+      - epel-release
+     ignore_errors: yes
+   
+   - name: instalando pacotes yum
+     yum:
+      name: "{{ item }}"
+      state: present
+     with_items:
+      - vim
+      - nano
+      - sl
+      - ccze
+      - bind-utils
+      - epel-release
+     ignore_errors: yes
+

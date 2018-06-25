@@ -1,0 +1,8 @@
+- name: instalar puppetagent
+  package:
+   name: "{{ item }}"
+   state: present
+   update_cache: yes
+  with_items:
+   - puppet-agent
+

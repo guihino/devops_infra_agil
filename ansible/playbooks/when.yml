@@ -1,0 +1,25 @@
+---
+
+#playbook para teste condicional
+
+- name: exemplo de operador condicional
+  hosts: all
+
+  tasks:
+   - name: testando arquivo profile
+     command: test -f /etc/profile.d/dexter
+     register: result
+     ignore_errors: yes
+
+   - name: caso o arquvo não existir
+     file:
+      path:  /etc/profile.d/dexter
+      owner: root
+      group: root
+      mode: 0644
+     when: result.rc != 0
+   
+   - name: configurando a variavel da dexter
+     shell: echo "export DEXTER=/opt/dexter" > /etc/profile.d/dexter
+     when: result.rc == 0
+

@@ -1,0 +1,16 @@
+- name: instalando apache e php no centos
+  yum:
+   name: httpd
+   state: present
+  when: ansible_os_family == "RedHat"
+
+- name: start httpd
+  service:
+    name: httpd
+    state: started
+  when: ansible_os_family == "RedHat"
+
+- name: copiando o index para a pasta web
+  copy:
+   src: ../files/index.html
+   dest: /var/www/html/

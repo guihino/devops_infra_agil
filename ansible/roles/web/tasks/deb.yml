@@ -1,0 +1,10 @@
+- name: instalar php e apache no debian
+  apt:
+   name: apache2
+   state: present
+  when: ansible_os_family == "Debian"
+
+- name: copia index para o apache
+  copy:
+   src: ../files/index.html
+   dest: /var/www/html/

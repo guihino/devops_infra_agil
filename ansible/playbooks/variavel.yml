@@ -1,0 +1,15 @@
+---
+
+- name: trabalhando com facs
+  hosts: all
+
+  tasks:
+   - name: instalando no debian
+     apt:
+      name: dnsutils
+     when: ansible_os_family == "Debian"
+
+   - name: instalando no centos
+     yum:
+      name: bind-utils
+     when: ansible_os_family == "RedHat"
