@@ -1,0 +1,11 @@
+---
+
+- name: add variable
+  shell: "EXTERNAL_URL='http://gitlab.dexter.com.br'"
+
+- name: Install gitlab
+  apt:
+   name: gitlab-ce
+   update_cache: yes
+   state: present
+

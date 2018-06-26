@@ -1,0 +1,8 @@
+---
+# tasks file for gitlab
+
+- name: Install Gitlab
+  hosts: devops
+  tasks:
+   - include: prerecs.yml
+   - include: install.yml

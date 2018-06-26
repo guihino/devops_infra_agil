@@ -1,0 +1,15 @@
+---
+
+- name: Install packages for gitlab
+  apt:
+   name: "{{ item }}"
+   state: present
+  with_items:
+   - curl
+   - openssh-server
+   - ca-certificates
+   - postfix
+   
+- name: Add Repository
+  shell: "curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash"
+
