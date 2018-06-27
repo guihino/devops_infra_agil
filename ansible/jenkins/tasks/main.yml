@@ -1,0 +1,9 @@
+---
+# tasks file for jenkins
+
+- name: install jenkins
+  hosts: automation
+  tasks:
+   - include: install.yml
+   - include: repo.yml
+   - include: jenkins.yml

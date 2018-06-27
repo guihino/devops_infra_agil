@@ -1,0 +1,9 @@
+- name: install jenkins
+  yum:
+   name: "{{ item }}"
+   state: present
+  with_items:
+   - git
+   - wget
+   - java
+

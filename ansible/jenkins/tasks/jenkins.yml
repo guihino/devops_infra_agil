@@ -1,0 +1,4 @@
+- name: install jenkins
+  yum:
+   name: jenkins
+   state: present
