@@ -1,0 +1,9 @@
+---
+# tasks file for rundeck
+
+- name: install rundeck
+  hosts: automation
+  tasks:
+   - include: java.yml
+   - include: repo.yml
+   - include: install.yml 

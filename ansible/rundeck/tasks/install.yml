@@ -1,0 +1,9 @@
+- name: install rundeck
+  yum:
+   name: rundeck
+   state: present
+
+- name: Start rundeck
+  service:
+    name: rundeckd
+    state: started

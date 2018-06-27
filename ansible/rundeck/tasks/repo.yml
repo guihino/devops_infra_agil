@@ -1,0 +1,4 @@
+- name: Install repo.
+  yum:
+     name: http://repo.rundeck.org/latest.rpm 
+     state: present
