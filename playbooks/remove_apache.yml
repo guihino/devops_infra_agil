@@ -1,0 +1,15 @@
+---
+
+- name: remove apache
+  hosts: docker
+  remote_user: root
+  tasks:
+   - name: stop apache
+     service:
+      name: apache2
+      state: stopped
+
+   - name: removendo apache
+     apt: 
+      name: apache2
+      state: absent

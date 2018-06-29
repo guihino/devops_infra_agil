@@ -1,0 +1,14 @@
+---
+
+- name: install pip
+  hosts: docker
+  remote_user: root
+  tasks:
+   - name: install pip
+     apt:
+      name: python-pip
+      state: present
+
+   - name: install python module
+     pip:
+      name: docker-py

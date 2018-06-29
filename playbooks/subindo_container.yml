@@ -1,0 +1,28 @@
+---
+
+- name: start container
+  hosts: docker
+  remote_user: root
+  tasks:
+   - name: criar dir blue
+     file:
+      path: /blue
+      state: directory
+
+   - name: criar dir green
+     file:
+      path: /green
+      state: directory   
+
+   - name: green container
+     docker_container:
+      name: green
+      image: httpd
+      state: started
+   
+   - name: blue container
+     docker_container:
+      name: blue
+      image: httpd
+      state: started
+
